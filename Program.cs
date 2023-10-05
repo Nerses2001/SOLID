@@ -1,4 +1,6 @@
-﻿using SOLID.OCP.SrpSolution.ShapeOCPSolution;
+﻿using SOLID.LSP.LSPSolution;
+using SOLID.LSP.LSPViolation;
+using SOLID.OCP.SrpSolution.ShapeOCPSolution;
 using SOLID.OCP.SRPViolation.ShapeOCPViolation;
 using SOLID.SRP.EmployeeArchitecure;
 using SOLID.SRP.ModelSrpSolution;
@@ -40,6 +42,17 @@ internal class Program
         RectangleOCP rectOCP2 = new(20, 37.3);
         AreaCalculatorOCP acOCP = new();
         Console.WriteLine(acOCP.AreaCalc(rectOCP1, rectOCP2));
+
+        Console.WriteLine(new string('_', 100));
+        // Don't Saved LSP
+        // ClientTestProgram.ClientMain(); have been Exaption
+        Parent p = new();
+        p.DoSomting();
+        Child c = new();
+        
+        // c.DoSomting();
+
+
         Console.ReadKey();
 
     }
