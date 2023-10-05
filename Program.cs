@@ -1,6 +1,8 @@
-﻿using SOLID.EmplyeeArchitecure;
-using SOLID.ModelSrpSolution;
-using SOLID.ModelSRPViolation;
+﻿using SOLID.OCP.SrpSolution.ShapeOCPSolution;
+using SOLID.OCP.SRPViolation.ShapeOCPViolation;
+using SOLID.SRP.EmployeeArchitecure;
+using SOLID.SRP.ModelSrpSolution;
+using SOLID.SRP.ModelSRPViolation;
 
 internal class Program
 {
@@ -25,5 +27,20 @@ internal class Program
 
         Console.WriteLine(new string('_', 100));
         ClientModule.ClientModuleMain();
+
+        // Didn't save OCP
+        Console.WriteLine(new string('_', 100));
+        Rectangle rect1 = new(10,5);
+        Rectangle rect2 = new(20,37.3);
+        AreaCalculator ac = new ();
+        Console.WriteLine(ac.AreaCalc(rect1,rect2));
+
+        // Saved OCP
+        RectangleOCP rectOCP1 = new(10, 5);
+        RectangleOCP rectOCP2 = new(20, 37.3);
+        AreaCalculatorOCP acOCP = new();
+        Console.WriteLine(acOCP.AreaCalc(rectOCP1, rectOCP2));
+        Console.ReadKey();
+
     }
 }
